@@ -12,3 +12,7 @@ deploy:
   on:
     repo: kezhenxu94/tools
     branch: master
+
+cache:
+  directories:
+    - "node_modules"
