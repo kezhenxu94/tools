@@ -5,6 +5,9 @@ env:
 language: node_js
 node_js: "7"
 
+script:
+  - npm run build
+
 deploy:
   provider: pages
   github-token: "$GITHUB_TOKEN"
