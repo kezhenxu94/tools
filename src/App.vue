@@ -2,14 +2,27 @@
   <v-app id="app" dark>
     <v-navigation-drawer app :value.sync="showDrawer" @input="showDrawer=$event">
       <v-toolbar flat>
-        <v-list>
-          <v-list-tile>
-            <v-list-tile-title class="title">Useful Tools</v-list-tile-title>
+        <v-list class="pa-0">
+          <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <img src="https://www.gravatar.com/avatar/a14e62dda940324d878be1499c064432">
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>Kid the Programmer</v-list-tile-title>
+            </v-list-tile-content>
           </v-list-tile>
         </v-list>
       </v-toolbar>
       <v-list>
-        <v-list-tile v-for="item in items" :key="item.title" @click="$router.push(item.path)">
+        <v-list-tile @click="goHomePage">
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Home</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile v-for="item in items" :key="item.title" @click="$router.replace(item.path)">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -21,6 +34,7 @@
     </v-navigation-drawer>
     <v-toolbar app flat>
       <v-toolbar-side-icon @click.stop="showDrawer=!showDrawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Tools</v-toolbar-title>
     </v-toolbar>
     <v-content class="content">
       <router-view></router-view>
@@ -36,12 +50,17 @@
 <script>
 export default {
   name: 'App',
+  methods: {
+    goHomePage: () => {
+      window.location.href = 'http://kezhenxu94.me'
+    }
+  },
   data () {
     return {
       showDrawer: null,
       items: [
         { title: 'Time', icon: 'watch', path: '/time' },
-        { title: 'Formatter', icon: '', path: '/formatter' }
+        { title: 'Formatter', icon: 'text_format', path: '/formatter' }
       ],
       right: null
     }

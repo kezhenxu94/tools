@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import TimeConverter from './Converter'
+import TimeConverter from '@/components/time/Converter'
 export default {
   name: 'k-time',
   components: {TimeConverter}

@@ -9,15 +9,14 @@
 </template>
 
 <script>
+import {formatJson} from '@/lib/formatter/json'
+
 export default {
   name: 'Formatter',
   methods: {
     onkeydown (event) {
       if ((event.metaKey || event.ctrlKey) && event.keyCode === 13) {
-        try {
-          this.content = JSON.stringify(JSON.parse(this.content), null, 2)
-        } catch (e) {
-        }
+        this.content = formatJson(this.content)
       }
     }
   },
