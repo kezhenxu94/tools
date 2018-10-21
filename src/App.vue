@@ -26,7 +26,9 @@
       <router-view></router-view>
     </v-content>
     <v-footer app>
-      <v-layout justify-center row wrap>&copy; kezhenxu94@2018</v-layout>
+      <v-layout justify-center row wrap>
+        Copyright © 2018 Kid the Programmer
+      </v-layout>
     </v-footer>
   </v-app>
 </template>
@@ -48,9 +50,12 @@ export default {
 </script>
 
 <style lang="stylus">
-  #app {
-    font-family Menlo, Monaco, Consolas, Monospaced, sans-serif
-    -webkit-font-smoothing antialiased
-    -moz-osx-font-smoothing grayscale
-  }
+#app {
+  font-family Menlo, Monaco, Consolas, Monospaced, sans-serif
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+}
+.v-footer {
+  font-size 11px
+}
 </style>
