@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <v-flex xs8 sm4 xs12>
+  <v-container>
+    <v-flex sm6 xs12>
       <time-converter></time-converter>
     </v-flex>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -15,8 +15,4 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-#comp-time {
-  height 100%
-  width 100%
-}
 </style>

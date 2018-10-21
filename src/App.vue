@@ -22,10 +22,8 @@
     <v-toolbar app flat>
       <v-toolbar-side-icon @click.stop="showDrawer=!showDrawer"></v-toolbar-side-icon>
     </v-toolbar>
-    <v-content>
-      <v-container fluid>
-        <router-view></router-view>
-      </v-container>
+    <v-content class="content">
+      <router-view></router-view>
     </v-content>
     <v-footer app>&copy; kezhenxu94@2018</v-footer>
   </v-app>
@@ -39,7 +37,7 @@ export default {
       showDrawer: null,
       items: [
         { title: 'Time', icon: 'watch', path: '/time' },
-        { title: 'About', icon: 'question_answer', path: '' }
+        { title: 'Formatter', icon: '', path: '/formatter' }
       ],
       right: null
     }
@@ -48,9 +46,9 @@ export default {
 </script>
 
 <style lang="stylus">
-#app {
-  font-family Menlo, Monaco, Consolas, Monospaced, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-}
+  #app {
+    font-family Menlo, Monaco, Consolas, Monospaced, sans-serif
+    -webkit-font-smoothing antialiased
+    -moz-osx-font-smoothing grayscale
+  }
 </style>
