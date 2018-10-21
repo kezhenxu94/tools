@@ -25,7 +25,9 @@
     <v-content class="content">
       <router-view></router-view>
     </v-content>
-    <v-footer app>&copy; kezhenxu94@2018</v-footer>
+    <v-footer app>
+      <v-layout justify-center row wrap>&copy; kezhenxu94@2018</v-layout>
+    </v-footer>
   </v-app>
 </template>
 
