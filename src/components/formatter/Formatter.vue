@@ -15,6 +15,7 @@ import {formatJson} from '@/lib/formatter/json'
 import AceEditor from '@/components/ace-editor/AceEditor'
 import 'brace/theme/clouds_midnight'
 import 'brace/mode/json'
+import 'brace/ext/searchbox'
 
 export default {
   name: 'Formatter',
