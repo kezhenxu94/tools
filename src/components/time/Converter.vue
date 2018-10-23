@@ -11,7 +11,7 @@
     <v-divider></v-divider>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn flat color="orange" @click="timestamp=currentTimestamp">Now: {{ currentTimestamp }}</v-btn>
+      <v-btn flat color="amber" @click="timestamp=currentTimestamp">Now: {{ currentTimestamp }}</v-btn>
     </v-card-actions>
   </v-card>
 </template>
