@@ -1,28 +1,43 @@
 <template>
   <v-container id="root-formatter">
-    <v-textarea autofocus clearable dark no-resize box
+    <ace-editor show-gutter
                 v-model="content"
-                label="Text to Format"
-                hint="Press Ctrl (or Command on Mac) and Enter to format"
-                @keydown="onkeydown"></v-textarea>
+                :value="content"
+                ref="editor"
+                height="100%"
+                theme="ace/theme/clouds_midnight"
+                mode="ace/mode/json"></ace-editor>
   </v-container>
 </template>
 
 <script>
 import {formatJson} from '@/lib/formatter/json'
+import AceEditor from '@/components/ace-editor/AceEditor'
+import 'brace/theme/clouds_midnight'
+import 'brace/mode/json'
 
 export default {
   name: 'Formatter',
-  methods: {
-    onkeydown (event) {
-      if ((event.metaKey || event.ctrlKey) && event.keyCode === 13) {
+  components: {AceEditor},
+  mounted () {
+    const editor = this.$refs['editor'].editor
+    editor.commands.addCommand({
+      name: 'Run',
+      exec: () => {
         this.content = formatJson(this.content)
+      },
+      bindKey: {
+        mac: 'cmd-enter',
+        win: 'ctrl-enter'
       }
-    }
+    })
+    editor.focus()
+  },
+  beforeDestroy () {
   },
   data () {
     return {
-      content: undefined
+      content: ''
     }
   }
 }
@@ -31,14 +46,5 @@ export default {
 <style scoped>
 #root-formatter {
   height: 100%;
-}
-.v-textarea {
-  height: 100%;
-}
-.v-textarea >>> .v-input__control {
-  height: calc(100%);
-}
-.v-textarea >>> .v-input__slot {
-  height: calc(100% - 40px);
 }
 </style>

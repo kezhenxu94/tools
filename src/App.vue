@@ -22,7 +22,7 @@
             <v-list-tile-title>Home</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile v-for="item in items" :key="item.title" @click="$router.replace(item.path)">
+        <v-list-tile v-for="item in items" :key="item.title" :to="item.path">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -52,7 +52,7 @@ export default {
   name: 'App',
   methods: {
     goHomePage: () => {
-      window.location.href = 'http://kezhenxu94.me'
+      window.location.href = 'https://kezhenxu94.me'
     }
   },
   data () {
