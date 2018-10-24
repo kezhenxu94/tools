@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Time from '@/components/time/Time'
-import Formatter from '@/components/formatter/Formatter'
+import Time from '@/views/Converter'
+import Formatter from '@/views/Formatter'
 
 Vue.use(Router)
 
