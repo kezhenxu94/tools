@@ -3,24 +3,25 @@
 import Vue from 'vue'
 import App from '@/App'
 import router from '@/router'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.css'
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
-import '@/style/common.styl'
-import colors from 'vuetify/es5/util/colors'
-
-Vue.use(Vuetify, {
-  theme: {
-    primary: colors.amber.base
-  }
-})
+import ui from '@/ui'
+import VueI18n from 'vue-i18n'
+import messages from '@/i18n'
 
 Vue.config.productionTip = false
+
+Vue.use(ui.plugin, ui.options)
+Vue.use(VueI18n)
+
+const i18n = new VueI18n({
+  locale: navigator.language || 'en',
+  messages
+})
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  router,
+  i18n
 })

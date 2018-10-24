@@ -1,17 +1,17 @@
 <template>
   <v-card hover>
     <v-card-title>
-      <v-icon>transform</v-icon><h3>&nbsp;Encoder</h3>
+      <v-icon>link</v-icon><h3>&nbsp;{{$t('converter.url.title')}}</h3>
     </v-card-title>
     <v-divider></v-divider>
     <v-card-text>
-      <v-text-field prepend-icon="E" label="Decoded" v-model="decoded"></v-text-field>
-      <v-text-field prepend-icon="D" label="Encoded" v-model="encoded"></v-text-field>
+      <v-text-field prepend-icon="E" :label="$t('converter.url.decoded')" v-model="decoded"></v-text-field>
+      <v-text-field prepend-icon="D" :label="$t('converter.url.encoded')" v-model="encoded"></v-text-field>
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn flat color="red" @click="encoded=''"><v-icon>clear</v-icon>Clear</v-btn>
+      <v-btn flat color="red" @click="encoded=''"><v-icon>clear</v-icon>{{$t('clear')}}</v-btn>
     </v-card-actions>
   </v-card>
 </template>

@@ -19,7 +19,7 @@
             <v-icon>home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Home</v-list-tile-title>
+            <v-list-tile-title>{{$t('home')}}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile v-for="item in items" :key="item.title" :to="item.path">
@@ -34,7 +34,7 @@
     </v-navigation-drawer>
     <v-toolbar app flat>
       <v-toolbar-side-icon @click.stop="showDrawer=!showDrawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Tools</v-toolbar-title>
+      <v-toolbar-title>{{$t('app')}}</v-toolbar-title>
     </v-toolbar>
     <v-content class="content">
       <router-view></router-view>
@@ -59,8 +59,8 @@ export default {
     return {
       showDrawer: null,
       items: [
-        { title: 'Time', icon: 'watch', path: '/time' },
-        { title: 'Formatter', icon: 'text_format', path: '/formatter' }
+        { title: this.$t('converter.title'), icon: 'transform', path: '/converter' },
+        { title: this.$t('formatter.title'), icon: 'text_format', path: '/formatter' }
       ],
       right: null
     }
@@ -73,8 +73,12 @@ export default {
   font-family Menlo, Monaco, Consolas, Monospaced, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
+  height 100vh
 }
 .v-footer {
   font-size 11px
+}
+.content {
+  height 100%
 }
 </style>

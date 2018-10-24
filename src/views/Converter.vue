@@ -1,5 +1,5 @@
 <template>
-  <v-layout grid-list-md text-xs-center row wrap>
+  <v-layout class="root" grid-list-md text-xs-center row wrap>
     <v-flex xs12 sm6 md6 lg6 xl4>
       <v-container>
         <time-converter></time-converter>
@@ -23,4 +23,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.root {
+  height 100%
+  overflow auto
+}
 </style>

@@ -1,17 +1,17 @@
 <template>
   <v-card hover>
     <v-card-title>
-      <v-icon>transform</v-icon><h3>&nbsp;Converter</h3>
+      <v-icon>access_time</v-icon><h3>&nbsp;{{$t('converter.time.title')}}</h3>
     </v-card-title>
     <v-divider></v-divider>
     <v-card-text>
-      <v-text-field prepend-icon="S" label="Time in seconds" v-model="timestamp" mask="##########"></v-text-field>
-      <v-text-field prepend-icon="watch" label="Human readable time" v-model="time" :error="hasError" :error-messages="errorMessage"></v-text-field>
+      <v-text-field prepend-icon="S" :label="$t('converter.time.timeInSeconds')" v-model="timestamp" mask="##########"></v-text-field>
+      <v-text-field prepend-icon="watch" :label="$t('converter.time.readableTime')" v-model="time" :error="hasError" :error-messages="errorMessage"></v-text-field>
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn flat color="amber" @click="timestamp=currentTimestamp">Now: {{ currentTimestamp }}</v-btn>
+      <v-btn flat color="amber" @click="timestamp=currentTimestamp">{{$t('converter.time.now')}}: {{ currentTimestamp }}</v-btn>
     </v-card-actions>
   </v-card>
 </template>
