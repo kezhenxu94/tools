@@ -12,8 +12,13 @@ Vue.config.productionTip = false
 Vue.use(ui.plugin, ui.options)
 Vue.use(VueI18n)
 
+let lang = navigator.language || 'en'
+if (lang.startsWith('zh')) {
+  lang = 'zh'
+}
+
 const i18n = new VueI18n({
-  locale: navigator.language || 'en',
+  locale: lang,
   messages
 })
 

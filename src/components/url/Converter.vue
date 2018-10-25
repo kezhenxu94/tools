@@ -5,8 +5,8 @@
     </v-card-title>
     <v-divider></v-divider>
     <v-card-text>
-      <v-text-field prepend-icon="E" :label="$t('converter.url.decoded')" v-model="decoded"></v-text-field>
-      <v-text-field prepend-icon="D" :label="$t('converter.url.encoded')" v-model="encoded"></v-text-field>
+      <v-text-field prepend-icon="D" :label="$t('converter.url.decoded')" v-model="decoded"></v-text-field>
+      <v-text-field prepend-icon="E" :label="$t('converter.url.encoded')" v-model="encoded"></v-text-field>
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>

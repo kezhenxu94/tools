@@ -7,7 +7,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {path: '/', redirect: '/time'},
+    {path: '/', redirect: '/converter'},
     {path: '/converter', name: 'Converter', component: Converter},
     {path: '/formatter', name: 'Formatter', component: Formatter}
   ]
