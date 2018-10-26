@@ -60,7 +60,8 @@ export default {
       showDrawer: null,
       items: [
         { title: this.$t('converter.title'), icon: 'transform', path: '/converter' },
-        { title: this.$t('formatter.title'), icon: 'text_format', path: '/formatter' }
+        { title: this.$t('formatter.title'), icon: 'text_format', path: '/formatter' },
+        { title: this.$t('qrcode.title'), icon: 'code', path: '/qrcode' }
       ],
       right: null
     }
