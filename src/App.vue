@@ -48,8 +48,32 @@
 </template>
 
 <script>
+import VApp from 'vuetify/lib/components/VApp/VApp'
+import VNavigationDrawer from 'vuetify/lib/components/VNavigationDrawer'
+import {VToolbar, VToolbarTitle, VToolbarSideIcon} from 'vuetify/lib/components/VToolbar'
+import {VList, VListTile, VListTileTitle, VListTileAvatar, VListTileContent, VListTileAction} from 'vuetify/lib/components/VList'
+import VIcon from 'vuetify/lib/components/VIcon'
+import VFooter from 'vuetify/lib/components/VFooter'
+import {VLayout, VContent} from 'vuetify/lib/components/VGrid'
 export default {
   name: 'App',
+  components: {
+    VApp,
+    VNavigationDrawer,
+    VToolbar,
+    VToolbarTitle,
+    VToolbarSideIcon,
+    VList,
+    VListTile,
+    VListTileTitle,
+    VListTileAvatar,
+    VListTileContent,
+    VListTileAction,
+    VContent,
+    VLayout,
+    VIcon,
+    VFooter
+  },
   methods: {
     goHomePage: () => {
       window.location.href = 'https://kezhenxu94.me'
@@ -60,7 +84,8 @@ export default {
       showDrawer: null,
       items: [
         { title: this.$t('converter.title'), icon: 'transform', path: '/converter' },
-        { title: this.$t('formatter.title'), icon: 'text_format', path: '/formatter' }
+        { title: this.$t('formatter.title'), icon: 'text_format', path: '/formatter' },
+        { title: this.$t('qrcode.title'), icon: 'code', path: '/qrcode' }
       ],
       right: null
     }

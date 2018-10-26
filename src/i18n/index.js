@@ -19,6 +19,10 @@ const messages = {
     },
     formatter: {
       title: 'Formatter'
+    },
+    qrcode: {
+      title: 'QR Code',
+      inputLabel: 'Text to generate'
     }
   },
   'zh-CN': {
@@ -41,6 +45,9 @@ const messages = {
     },
     formatter: {
       title: '格式化'
+    },
+    qrcode: {
+      inputLabel: '输入文本'
     }
   }
 }

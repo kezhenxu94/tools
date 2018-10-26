@@ -16,9 +16,18 @@
 <script>
 import TimeConverter from '@/components/time/Converter'
 import UrlConverter from '@/components/url/Converter'
+
+import {VLayout, VFlex, VContainer} from 'vuetify/lib/components/VGrid'
+
 export default {
   name: 'converter',
-  components: {UrlConverter, TimeConverter}
+  components: {
+    UrlConverter,
+    TimeConverter,
+    VLayout,
+    VFlex,
+    VContainer
+  }
 }
 </script>
 

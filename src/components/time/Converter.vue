@@ -20,8 +20,27 @@
 import moment from 'moment'
 import {possibleTimeFormats} from '@/lib/time/converter'
 
+import {VCard, VCardMedia, VCardTitle, VCardText, VCardActions} from 'vuetify/lib/components/VCard'
+import VDivider from 'vuetify/lib/components/VDivider'
+import VIcon from 'vuetify/lib/components/VIcon'
+import VBtn from 'vuetify/lib/components/VBtn'
+import VTextField from 'vuetify/lib/components/VTextField'
+import {VSpacer} from 'vuetify/lib/components/VGrid'
+
 export default {
   name: 'time-converter',
+  components: {
+    VCard,
+    VCardMedia,
+    VCardTitle,
+    VCardText,
+    VCardActions,
+    VDivider,
+    VIcon,
+    VBtn,
+    VTextField,
+    VSpacer
+  },
   watch: {
     time () {
       if (this.time === moment.unix(this.timestamp).format('YYYY/MM/DD HH:mm:ss')) {

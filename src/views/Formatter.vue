@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import VContainer from 'vuetify/es5/components/VGrid/VContainer'
 import {formatJson} from '@/lib/formatter/json'
 import AceEditor from '@/components/ace-editor/AceEditor'
 import 'brace/theme/clouds_midnight'
@@ -19,7 +20,7 @@ import 'brace/ext/searchbox'
 
 export default {
   name: 'Formatter',
-  components: {AceEditor},
+  components: {AceEditor, VContainer},
   mounted () {
     const editor = this.$refs['editor'].editor
     editor.commands.addCommand({

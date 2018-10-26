@@ -17,8 +17,26 @@
 </template>
 
 <script>
+import {VCard, VCardTitle, VCardText, VCardActions} from 'vuetify/lib/components/VCard'
+import VDivider from 'vuetify/lib/components/VDivider'
+import VIcon from 'vuetify/lib/components/VIcon'
+import VBtn from 'vuetify/lib/components/VBtn'
+import VTextField from 'vuetify/lib/components/VTextField'
+import {VSpacer} from 'vuetify/lib/components/VGrid'
+
 export default {
   name: 'url-converter',
+  components: {
+    VCard,
+    VCardTitle,
+    VCardText,
+    VCardActions,
+    VDivider,
+    VIcon,
+    VBtn,
+    VTextField,
+    VSpacer
+  },
   watch: {
     encoded: {
       handler () {
