@@ -15,6 +15,8 @@ Vue.use(VueI18n)
 let lang = navigator.language || 'en'
 if (lang.startsWith('zh')) {
   lang = 'zh'
+} else {
+  lang = 'en'
 }
 
 const i18n = new VueI18n({

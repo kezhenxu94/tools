@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Converter from '@/views/Converter'
-import Formatter from '@/views/Formatter'
 
 Vue.use(Router)
+
+const Converter = () => import('@/views/Converter')
+const Formatter = () => import('@/views/Formatter')
 
 export default new Router({
   routes: [
