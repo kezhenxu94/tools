@@ -18,6 +18,11 @@ deploy:
     repo: kezhenxu94/tools
     branch: master
 
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+
 cache:
   directories:
     - "node_modules"
