@@ -13,11 +13,6 @@
           <v-card-text>
             <v-text-field :label="$t('qrcode.inputLabel')" v-model="value"></v-text-field>
           </v-card-text>
-          <v-divider></v-divider>
-          <!--<v-card-actions>-->
-            <!--<v-spacer></v-spacer>-->
-            <!--<v-btn flat color="amber" :href="dataURL" download>Save</v-btn>-->
-          <!--</v-card-actions>-->
         </v-card>
       </v-container>
     </v-flex>
@@ -34,7 +29,10 @@ export default {
       handler () {
         QRCode.toDataURL(this.value, {
           errorCorrectionLevel: 'H',
-          quality: 1
+          type: 'image/jpeg',
+          rendererOpts: {
+            quality: 1
+          }
         }).then(url => {
           this.dataURL = url
         }).catch(err => {
