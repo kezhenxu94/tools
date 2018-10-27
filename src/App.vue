@@ -24,10 +24,10 @@
         </v-list-tile>
         <v-list-tile v-for="item in items" :key="item.title" :to="item.path">
           <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{item.icon}}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title>{{$t(item.title)}}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -35,11 +35,25 @@
     <v-toolbar app flat>
       <v-toolbar-side-icon @click.stop="showDrawer=!showDrawer"></v-toolbar-side-icon>
       <v-toolbar-title>{{$t('app')}}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-menu>
+          <v-btn slot="activator" flat>
+            {{language.label}}
+            <v-icon right>arrow_drop_down</v-icon>
+          </v-btn>
+          <v-list>
+            <v-list-tile v-for="l in languages" :key="l.value" @click="language=l">
+              <v-list-tile-title>{{l.label}}</v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+      </v-toolbar-items>
     </v-toolbar>
     <v-content class="content">
       <router-view></router-view>
     </v-content>
-    <v-footer app>
+    <v-footer app class="hidden-sm-and-down">
       <v-layout justify-center row wrap>
         Copyright © 2018 Kid the Programmer
       </v-layout>
@@ -50,11 +64,14 @@
 <script>
 import VApp from 'vuetify/lib/components/VApp/VApp'
 import VNavigationDrawer from 'vuetify/lib/components/VNavigationDrawer'
-import {VToolbar, VToolbarTitle, VToolbarSideIcon} from 'vuetify/lib/components/VToolbar'
+import {VToolbar, VToolbarTitle, VToolbarSideIcon, VToolbarItems} from 'vuetify/lib/components/VToolbar'
 import {VList, VListTile, VListTileTitle, VListTileAvatar, VListTileContent, VListTileAction} from 'vuetify/lib/components/VList'
 import VIcon from 'vuetify/lib/components/VIcon'
 import VFooter from 'vuetify/lib/components/VFooter'
-import {VLayout, VContent} from 'vuetify/lib/components/VGrid'
+import VMenu from 'vuetify/lib/components/VMenu'
+import VBtn from 'vuetify/lib/components/VBtn'
+import {VLayout, VContent, VSpacer} from 'vuetify/lib/components/VGrid'
+
 export default {
   name: 'App',
   components: {
@@ -63,6 +80,7 @@ export default {
     VToolbar,
     VToolbarTitle,
     VToolbarSideIcon,
+    VToolbarItems,
     VList,
     VListTile,
     VListTileTitle,
@@ -72,22 +90,39 @@ export default {
     VContent,
     VLayout,
     VIcon,
-    VFooter
+    VFooter,
+    VMenu,
+    VBtn,
+    VSpacer
   },
   methods: {
     goHomePage: () => {
       window.location.href = 'https://kezhenxu94.me'
     }
   },
+  computed: {
+    language: {
+      get () {
+        return this.$store.state.language
+      },
+      set (val) {
+        this.$store.commit('setLanguage', val)
+      }
+    }
+  },
   data () {
     return {
       showDrawer: null,
       items: [
-        { title: this.$t('converter.title'), icon: 'transform', path: '/converter' },
-        { title: this.$t('formatter.title'), icon: 'text_format', path: '/formatter' },
-        { title: this.$t('qrcode.title'), icon: 'code', path: '/qrcode' }
+        { title: 'converter.title', icon: 'transform', path: '/converter' },
+        { title: 'formatter.title', icon: 'text_format', path: '/formatter' },
+        { title: 'qrcode.title', icon: 'code', path: '/qrcode' }
       ],
-      right: null
+      right: null,
+      languages: [
+        {label: 'English', value: 'en'},
+        {label: '简体中文', value: 'zh-CN'}
+      ]
     }
   }
 }

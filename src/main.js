@@ -4,25 +4,12 @@ import Vue from 'vue'
 import App from '@/App'
 import router from '@/router'
 import ui from '@/ui'
-import VueI18n from 'vue-i18n'
-import messages from '@/i18n'
+import store from '@/store'
+import i18n from '@/i18n'
 
 Vue.config.productionTip = false
 
 Vue.use(ui.plugin, ui.options)
-Vue.use(VueI18n)
-
-let lang = navigator.language || 'en'
-if (lang.startsWith('zh')) {
-  lang = 'zh'
-} else {
-  lang = 'en'
-}
-
-const i18n = new VueI18n({
-  locale: lang,
-  messages
-})
 
 /* eslint-disable no-new */
 new Vue({
@@ -30,5 +17,10 @@ new Vue({
   components: { App },
   template: '<App/>',
   router,
-  i18n
+  i18n,
+  store,
+  beforeCreate () {
+    this.$store.commit('initialiseStore')
+    i18n.locale = this.$store.state.language.value
+  }
 })
