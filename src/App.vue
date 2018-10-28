@@ -55,7 +55,7 @@
     </v-content>
     <v-footer app class="hidden-sm-and-down">
       <v-layout justify-center row wrap>
-        Copyright © 2018 Kid the Programmer
+        Copyright &copy;2018 Kid the Programmer
       </v-layout>
     </v-footer>
   </v-app>
@@ -131,6 +131,7 @@ export default {
 <style lang="stylus">
 #app {
   font-family Menlo, Monaco, Consolas, Monospaced, sans-serif
+  font-size 11px
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   height 100vh
